@@ -1,0 +1,92 @@
+{
+  "name": "rehype-pretty-code",
+  "version": "0.10.0",
+  "description": "Beautiful code for your MD/MDX docs.",
+  "main": "./dist/rehype-pretty-code.cjs",
+  "module": "./dist/rehype-pretty-code.js",
+  "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/rehype-pretty-code.js",
+      "require": "./dist/rehype-pretty-code.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf .turbo && rm -rf .next && rm -rf node_modules && rm -rf dist",
+    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "typecheck": "tsc --noEmit",
+    "playground": "npm run dev --workspace=word-highlighter-playground",
+    "playground-website": "npm run dev --workspace=website",
+    "release": "bumpp package.json --commit --push --tag",
+    "prebuild": "rm -rf dist",
+    "prepublishOnly": "NODE_ENV='production' npm run build"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "browserslist": [
+    "node 16"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "proseWrap": "always"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": "github:atomiks/index",
+  "homepage": "https://index.netlify.app",
+  "peerDependencies": {
+    "shiki": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-typescript": "^7.22.5",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-swc": "^0.1.1",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "bumpp": "^9.1.1",
+    "esbuild": "^0.19.2",
+    "eslint": "^8.47.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "hast-util-to-html": "^9.0.0",
+    "hast-util-to-string": "^2.0.0",
+    "jest-file-snapshot": "^0.5.0",
+    "jest-mock": "^29.6.2",
+    "mdast-util-to-hast": "^13.0.1",
+    "prettier": "^3.0.1",
+    "rehype-parse": "^8.0.4",
+    "remark": "^14.0.3",
+    "rollup": "^3.28.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rome": "12.1.3",
+    "shiki": "workspace:*",
+    "ts-jest": "^29.1.1",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^5.0.0",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "@types/hast": "^3.0.0",
+    "hash-obj": "^4.0.0",
+    "parse-numeric-range": "^1.3.0"
+  }
+}

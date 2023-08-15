@@ -1,0 +1,23 @@
+{
+    "extends": "tsconfig/nextjs.json",
+
+  "compilerOptions": {
+        "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "$/*": ["./src/*"]
+    },
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".eslintrc.js",
+    "next.config.mjs",
+    "postcss.config.js",
+    "prettier.config.cjs",
+    "tailwind.config.js"
+  ],
+  "exclude": ["node_modules"]
+}
